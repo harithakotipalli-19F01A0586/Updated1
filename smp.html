@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Posts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+            background-color: #f7f7f7;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        #image-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+        }
+        .image-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+        .image-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <h1>Social Media Posts</h1>
+    <div id="image-container"></div>
+
+    <script>
+        // Array of image filenames
+        const images = [
+            '01-08-2024 – 5.png',
+            '1 – 1.png', '1.png', '02-07-2024.png', '02-08-2024 – 1.png',
+            '02-08-2024.png', '2.png', '03-08-2024.png', '3.png','4.png',
+            '4-11-24 -5.png', '4-11-24.png', '4-11-24-1.png', '4-11-24-2.png',
+            '4-11-24-3.png', '4-11-24-4.png', '5.png', '06-06-24.png',
+            '06-08-2024.png', '6.png', '07-06-24.png', '7.png','08-10-24.png',
+            '8.png', '09-08-2024.png', '9.png', '10.png','11.png',
+            '11-06-24 vector – 2.png', '11-06-24 vector.png', '11-06-2024.png',
+            '12.png','13.png','14.png','15.png','16.png', '16-07-2024.png', '16-08-2024.png', '17.png',
+            '18.png', '20-08-2024.png', '28-10-2024.png', '29-7-2024.png','30-07-2024.png','30-10-2024 – 8.png',
+            'Artboard – 1.png', 'Artboard – 21.png', 'Artboard – 23.png', 'Artboard – 29.png',
+            'Artboard – 49.png', 'Diwali & Dussehra sale offer – 1.png', 'Frame 27.png', 'Happy Rakshabandhan.png'
+        ];
+
+        const imageFolder = './images/Social Media Posts/';
+        const imageContainer = document.getElementById('image-container');
+
+        // Loop to create image cards dynamically
+        images.forEach((filename, index) => {
+            const imageCard = document.createElement('div');
+            imageCard.classList.add('image-card');
+
+            const img = document.createElement('img');
+            img.src = `${imageFolder}${filename}`;
+            img.alt = `Image ${index + 1}`;
+            img.onerror = () => console.error(`Failed to load image: ${img.src}`);
+
+            imageCard.appendChild(img);
+            imageContainer.appendChild(imageCard);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing and Sales wall Stickers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+            background-color: #f7f7f7;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        #image-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two images per row */
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+        }
+        .image-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+        .image-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        #single-image {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            max-width: 1200px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Marketing and Sales wall Stickers</h1>
+    <div id="image-container"></div>
+    <!-- Display 'every deal closed is a celebration of teamwork.png' images separately -->
+    <div id="single-image">
+        <div class="image-card">
+            <img src="./images/marketing & sales wall stickers/every deal closed is a celebration of teamwork.png" alt="teamwork image">
+        </div>
+    </div>
+
+    <div id="single-image">
+        <div class="image-card">
+            <img src="./images/marketing & sales wall stickers/in this office.png" alt="office image">
+        </div>
+    </div>
+    <script>
+        // Array of image filenames
+        const images = [
+            'alexa boost my rankings.png',
+            'behind every big.png', 'every sales call is an opportunity.png', 
+            'Lets make Google Love us.png', 'make a customer not a sale.png', 
+            'my seo is better than yours.png', 'no doesnt mean.png',
+            'sales the art of.png', 'sorry i cant.png', 'the key to successs is action.png', 
+            'we dont close deals we open relationships.png',
+            'we solve problems.png', 'were on a mission.png', 'Where no is just way a polite.png'
+        ];
+
+        const imageFolder = './images/marketing & sales wall stickers/';
+        const imageContainer = document.getElementById('image-container');
+
+        // Loop to create image cards dynamically
+        images.forEach((filename, index) => {
+            const imageCard = document.createElement('div');
+            imageCard.classList.add('image-card');
+
+            const img = document.createElement('img');
+            img.src = `${imageFolder}${filename}`;
+            img.alt = `Image ${index + 1}`;
+            img.onerror = () => console.error(`Failed to load image: ${img.src}`);
+
+            imageCard.appendChild(img);
+            imageContainer.appendChild(imageCard);
+        });
+    </script>
+</body>
+</html>

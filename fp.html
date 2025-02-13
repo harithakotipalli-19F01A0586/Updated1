@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feature Pages</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+            background-color: #f7f7f7;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        #image-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+        }
+        .image-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+        .image-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <h1>Feature Pages</h1>
+    <div id="image-container"></div>
+
+    <script>
+        // Array of image filenames
+        const images = [
+            'Automatic attendance.webp','Automatic attendance-1.webp',
+            'Blog Page.webp','customer stories.webp',
+            'emp.webp','emp-1.webp','Final Remote & Hybrid.webp',
+            'Hr management – 1.webp','Hr management – 20.webp','Hr management – 21.webp',
+            'Hr management.webp','p1.webp','parental – 2.webp','parental – 3.webp',
+            'parental.webp','pricing page.webp','productivity – 1.webp','productivity.webp',
+            'Remote Employee Monitoring Software - 1.webp','Remote Employee Monitoring Software.webp','Task timer – 1.webp',
+            'Task timer – 2.webp','TC Blog-1.webp','TC Blog-2.webp','Time card – 1.webpg','Time card – 3.webp',
+            'Time card-2.webp','Timechamp platform page UI - 1.webp','Timechamp platform page UI.webp',
+            'Timesheets-1.webp','Timesheets-2.webp'
+            
+        ];
+
+        const imageFolder = './images/FP main/';
+        const imageContainer = document.getElementById('image-container');
+
+        // Loop to create image cards dynamically
+        images.forEach((filename, index) => {
+            const imageCard = document.createElement('div');
+            imageCard.classList.add('image-card');
+
+            const img = document.createElement('img');
+            img.src = `${imageFolder}${filename}`;
+            img.alt = `Image ${index + 1}`;
+            img.onerror = () => console.error(`Failed to load image: ${img.src}`);
+
+            imageCard.appendChild(img);
+            imageContainer.appendChild(imageCard);
+        });
+    </script>
+</body>
+</html>

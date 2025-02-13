@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flyers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+            background-color: #f7f7f7;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        #image-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+        }
+        .image-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+        .image-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <h1>Flyers</h1>
+    <div id="image-container"></div>
+
+    <script>
+        // Array of image filenames
+        const images = [
+            '4810109_2531608.png',
+            'Group 216446 1.png', 'Group 234122 1.png', 'image (1).png', 'image.png',
+        ];
+
+        const imageFolder = './images/Flyers/';
+        const imageContainer = document.getElementById('image-container');
+
+        // Loop to create image cards dynamically
+        images.forEach((filename, index) => {
+            const imageCard = document.createElement('div');
+            imageCard.classList.add('image-card');
+
+            const img = document.createElement('img');
+            img.src = `${imageFolder}${filename}`;
+            img.alt = `Image ${index + 1}`;
+            img.onerror = () => console.error(`Failed to load image: ${img.src}`);
+
+            imageCard.appendChild(img);
+            imageContainer.appendChild(imageCard);
+        });
+    </script>
+</body>
+</html>

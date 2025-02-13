@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unifindss</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+            background-color: #f7f7f7;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        #image-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Default to two images per row */
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+        }
+        .image-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+        .image-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        #single-image {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            max-width: 1200px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Unifindss</h1>
+
+    <!-- Display 'About us.png' and 'Comparison page.png' images separately -->
+    <div id="single-image">
+        <div class="image-card">
+            <img src="./images/Unifindss/About us.png" alt="About Us">
+        </div>
+    </div>
+
+    <div id="single-image">
+        <div class="image-card">
+            <img src="./images/Unifindss/Comparison page.png" alt="Comparison Page">
+        </div>
+    </div>
+
+    <div id="image-container">
+        <!-- Remaining images in two-per-row layout -->
+    </div>
+
+    <script>
+        // Array of image filenames (excluding 'About us.png' and 'Comparison page.png')
+        const images = [
+            'About college.png', 'Alert pop up.png', 'Cards.png', 'Connect with students.png', 
+            'Contact us.png', 'FAQs.png', 'Feedback form.png', 'Forgot password – 1.png', 
+            'Forgot password.png', 'get started.png', 'help center.png', 'input prefrrences.png', 
+            'landing page.png', 'Landing page1 – 18.png', 'Login screen.png', 'privacy policy.png', 
+            'Ratings & reviews.png', 'Sign up page.png', 'terms & conditions.png', 'unfinds_img.png', 
+            'Verifuy OTP.png'
+        ];
+
+        const imageFolder = './images/Unifindss/';
+        const imageContainer = document.getElementById('image-container');
+
+        // Loop to create image cards dynamically for the remaining images
+        images.forEach((filename, index) => {
+            const imageCard = document.createElement('div');
+            imageCard.classList.add('image-card');
+
+            const img = document.createElement('img');
+            img.src = `${imageFolder}${filename}`;
+            img.alt = `Image ${index + 1}`;
+            img.onerror = () => console.error(`Failed to load image: ${img.src}`);
+
+            imageCard.appendChild(img);
+            imageContainer.appendChild(imageCard);
+        });
+    </script>
+</body>
+</html>

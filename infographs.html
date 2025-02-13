@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infographs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+            background-color: #f7f7f7;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        #image-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+        }
+        .image-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+        .image-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body>
+    <h1>Infographs</h1>
+    <div id="image-container"></div>
+
+    <script>
+        // Array of image filenames
+        const images = [
+            'Group (2).png', 'Group (3).png', 'Group (4).png','Group (1).png','Group (5).png',
+            'Group (6).png', 'Group (7).png', 'Group (8).png', 'Group (9).png','Group (10).png',
+            'Group (12).png', 'Group (13).png', 'Group (11).png','Group (14).png','Group 216889.png',
+            'Group 216911 (1).png', 'Group 216911.png', 'Group 216979.png', 'Group 216981.png','Group 216981.png',
+            'Group 216983.png', 'Group.png', 'OBJECTS (1).png','OBJECTS (4).png','OBJECTS (3).png','OBJECTS (2).png',
+            'OBJECTS (2).png','OBJECTS (5).png','OBJECTS (8).png','OBJECTS (7).png','OBJECTS (6).png',
+            'OBJECTS (9).png','OBJECTS (10).png',
+            'OBJECTS (11).png','OBJECTS.png'
+        ];
+
+        const imageFolder = './images/Infographs/';
+        const imageContainer = document.getElementById('image-container');
+
+        // Loop to create image cards dynamically
+        images.forEach((filename, index) => {
+            const imageCard = document.createElement('div');
+            imageCard.classList.add('image-card');
+
+            const img = document.createElement('img');
+            img.src = `${imageFolder}${filename}`;
+            img.alt = `Image ${index + 1}`;
+            img.onerror = () => console.error(`Failed to load image: ${img.src}`);
+
+            imageCard.appendChild(img);
+            imageContainer.appendChild(imageCard);
+        });
+    </script>
+</body>
+</html>

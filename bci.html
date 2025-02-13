@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Cover Images</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+            background-color: #f7f7f7;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        #image-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+        }
+        .image-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+        .image-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <h1>Blog Cover Images</h1>
+    <div id="image-container"></div>
+
+    <script>
+        // Array of image filenames
+        const images = [
+            'Frame 28.png',
+            'Group 173091.png', 'Group 173093.png', 'Group 173094.png', 'Group 173096.png',
+            'Group 216777.png', 'Group 216783.png', 'Group 216814.png', 'Group 216828.png',
+            'Group 216852.png', 'Group 216855.png', 'Group 216871.png', 'Group 216873.png',
+            'Group 216876.png', 'Group 216877.png', 'Group 216878.png', 'Group 216887.png',
+            'Group 216888.png', 'Group 216907.png', 'Group 216912.png', 'Group 216913.png',
+            'Group 216915.png', 'Group 216916.png',
+            'Group 216934.png', 'Group 216944.png', 'Group 216960.png', 'Group 216961.png',
+            'Group 216962.png', 'Group 216963.png', 'Group 216965.png', 'Group 216967.png',
+            'Group 216969.png', 'Group 216970.png', 'Group 216971.png', 'Group 216972.png',
+            'Group 216974.png', 'Group 216976.png', 'Group 216980.png',
+            'Group 216982.png', 'Group 216984.png', 'Group 216985.png', 'Group 216987.png',
+            'Group 216989.png'
+        ];
+
+        const imageFolder = './images/Blog Cover Images/';
+        const imageContainer = document.getElementById('image-container');
+
+        // Loop to create image cards dynamically
+        images.forEach((filename, index) => {
+            const imageCard = document.createElement('div');
+            imageCard.classList.add('image-card');
+
+            const img = document.createElement('img');
+            img.src = `${imageFolder}${filename}`;
+            img.alt = `Image ${index + 1}`;
+            img.onerror = () => console.error(`Failed to load image: ${img.src}`);
+
+            imageCard.appendChild(img);
+            imageContainer.appendChild(imageCard);
+        });
+    </script>
+</body>
+</html>
